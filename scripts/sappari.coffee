@@ -9,6 +9,13 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
 module.exports = (robot) ->
+    robot.hear /さっぱり|サッパリ/i, (res) ->
+        res.reply "ハァ〜 さっぱり さっぱり"
+    
+    robot.hear /^(?!.*(さっぱり|サッパリ)).+$/i, (res) ->
+        num = Math.floor(Math.random() * 100)
+        if num == 0
+            res.send "ハァ〜 さっぱり さっぱり"
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
